@@ -62,7 +62,7 @@ public class CombatWindow : MonoBehaviour {
 
 				//Reset combatLog to stop it from getting too large
 				if(combatLog.Length > characterLimit){
-					combatLog = attackerName + " >>> " +destroyedName +"\n";
+					combatLog = attackerName + " >>> " +destroyedName;
 				}
 			}
 			windowRect = GUI.Window(4, windowRect, CombatWindowFunction, "Combat Log");

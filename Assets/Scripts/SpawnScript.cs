@@ -4,6 +4,8 @@ using System.Collections;
 /// <summary>
 /// Script attached to SpawnManager allows players to spawn and respawn
 /// 
+/// accesses PlayerDataBase to supply yeams
+/// 
 /// accessed by FireBlaster script to determine player team, healthAndDamage script 
 /// </summary>
 public class SpawnScript : MonoBehaviour {
@@ -110,6 +112,13 @@ public class SpawnScript : MonoBehaviour {
 
 		//spawn the player
 		Network.Instantiate (redTeamPlayer, randomRedSpawn.transform.position, randomRedSpawn.transform.rotation, redTeamGroup);
+
+
+		//access playerdatabase and give it the team of the player
+		GameObject gameManager = GameObject.Find ("GameManager");
+		PlayerDatabase dataScript = gameManager.GetComponent<PlayerDatabase>();
+		dataScript.joinTeam = true;
+		dataScript.playerTeam = "red";
 	}
 
 	//spawn in the Blue team player
@@ -122,5 +131,11 @@ public class SpawnScript : MonoBehaviour {
 		
 		//spawn the player
 		Network.Instantiate (blueTeamPlayer, randomBlueSpawn.transform.position, randomBlueSpawn.transform.rotation, blueTeamGroup);
+
+		//access playerdatabase and give it the team of the player
+		GameObject gameManager = GameObject.Find ("GameManager");
+		PlayerDatabase dataScript = gameManager.GetComponent<PlayerDatabase>();
+		dataScript.joinTeam = true;
+		dataScript.playerTeam = "blue";
 	}
 }

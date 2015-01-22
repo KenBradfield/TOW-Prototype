@@ -4,7 +4,8 @@ using System.Collections.Generic;
 
 /// <summary>
 /// script to manage the player list. attached to GameManager
-/// accessed by PlayerName, HealthAndDamage script
+/// 
+/// accessed by PlayerName, HealthAndDamage script, SpawnScript
 /// </summary>
 
 public class PlayerDatabase : MonoBehaviour {

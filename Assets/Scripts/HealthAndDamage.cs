@@ -6,6 +6,7 @@ using System.Collections;
 /// manages player's health & damage across the server
 /// 
 /// accesses PlayerDatabase script to check the playerList, Spawnscript to activate respawn on destroyed, CombatWindow to add next combat logs
+/// accesses PlayerScore to inform it to update
 /// 
 /// accessed by BlasterScript, StatDisplay, PlayerLabel script
 /// </summary>
@@ -57,6 +58,15 @@ public class HealthAndDamage : MonoBehaviour {
 
 							//send out RPC so player's health is reduced
 							networkView.RPC ("UpdateMyCurrentHealthEverywhere", RPCMode.Others, myHealth);
+							hitByBlaster = false;
+						}
+						if(myHealth <= 0 && destroyed == false){
+							myHealth = 0;
+							destroyed = true;
+							GameObject attacker = GameObject.Find(myAttacker);
+							PlayerScore scoreScript = attacker.GetComponent<PlayerScore>();
+							scoreScript.iDestroyedAnEnemy = true;
+							scoreScript.enemiesDestroyedInOneHit++;
 						}
 					}
 				}

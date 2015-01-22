@@ -61,6 +61,8 @@
      <Compile Include="Assets\Scripts\PlayerDatabase.cs" />
      <Compile Include="Assets\Scripts\PlayerLabel.cs" />
      <Compile Include="Assets\Scripts\PlayerName.cs" />
+     <Compile Include="Assets\Scripts\PlayerScore.cs" />
+     <Compile Include="Assets\Scripts\ScoreTable.cs" />
      <Compile Include="Assets\Scripts\SpawnScript.cs" />
      <Compile Include="Assets\Scripts\StatDisplay.cs" />
      <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
